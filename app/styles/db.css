@@ -75,6 +75,151 @@ body {
     border-bottom: 0;
   }
 }
+body {
+  background-color: #79818f;
+}
 .magic {
   font-weight: 600;
+}
+/* SOME OVERRIDES */
+.header {
+  border-bottom: 1px solid transparent;
+  /*#e5e5e5*/
+}
+.footer {
+  border-top: 1px solid transparent;
+  /*#e5e5e5*/
+}
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #d6d8dc;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #d6d8dc;
+  opacity: 1;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #d6d8dc;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #d6d8dc;
+}
+:placeholder-shown {
+  /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color: #d6d8dc;
+}
+input:focus {
+  outline: 0;
+}
+.merry-title {
+  font-family: 'Merriweather', serif;
+  font-size: 74px;
+  /*72.37px;*/
+  color: #fff;
+}
+.merry-descr {
+  display: block;
+  position: relative;
+  top: 6px;
+  margin: 0px 0 0 2px;
+  width: 75%;
+  font-size: 24px;
+  color: #8ef8e8;
+  line-height: 1.2;
+}
+.content.main {
+  margin-top: 80px;
+  position: relative;
+}
+.content.main .tab-bar {
+  width: auto;
+  height: 58px;
+  border: 1px solid sivler;
+  background-color: #9ba7b7;
+  font-size: 24px;
+  bold: true;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 58px;
+}
+.content.main .tab-bar.minor {
+  border: 1px;
+  font-size: 20px;
+}
+.content.main .itemcontainer {
+  display: block;
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 332px;
+  list-style: none;
+  overflow-y: scroll;
+}
+.content.main .list-item {
+  min-height: 40px;
+  border: 1px solid silver;
+  color: #5a5a5a;
+  line-height: 40px;
+  padding: 5px;
+  text-transform: uppercase;
+}
+.content.main .list-item .item-name {
+  display: inline-block;
+}
+.content.main .list-item .item-closer {
+  display: inline-block;
+  position: relative;
+  float: right;
+  margin: 10px 4px 0 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid steelblue;
+  content: "X";
+}
+.content.main .box-input {
+  margin-top: 10px;
+  width: auto;
+  height: 72px;
+  border: 4px solid #fff;
+  background-color: #9ba1ab;
+  /* */
+  line-height: 70px;
+  font-weight: 100;
+  padding-left: 10px;
+  font-size: 16px;
+  color: #d6d8dc;
+  text-transform: uppercase;
+}
+.content.main .box-input input[type="text"] {
+  background-color: transparent !important;
+  border: none;
+  select: none;
+  text-transform: uppercase;
+}
+.content.main .box-input.search {
+  position: absolute;
+  height: 52px;
+  line-height: 50px;
+  bottom: 0;
+  width: calc(100% - 15px);
+}
+.content.main .boxes {
+  margin-top: 20px;
+}
+.content.main .leftbox {
+  padding-left: 0;
+}
+.content.main .listbox {
+  min-height: 400px;
+}
+.content.main .listbox.list {
+  background-color: #ccc;
+  /*padding-left: 2px;
+		padding-right:2px;*/
+  padding: 4px;
 }

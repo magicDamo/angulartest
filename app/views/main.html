@@ -1,23 +1,55 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
+<div class="container">
+
   <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
+    <!-- <img src="images/yeoman.png" alt="I'm Yeoman"><br> -->
+    <!-- Always a pleasure scaffolding your apps. -->
+    <h3 class="merry-title"><i>Marvelous!</i></h3>
+    <div class="merry-descr"><span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</span></div>
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+  <div class="content main">
+    <div class="row">
+      <div class="tab-bar">Add Item</div>
+    </div>
+
+    <div class="row boxes">
+
+        <!-- LEFT UI THINGS -->
+        <div class="col-md-4 listbox leftbox">
+          <!-- <div class="basic-btn">Add Item</div>   -->
+          <div class="box-input">
+            <input type="text" placeholder="ENTER ITEM" mg-model="enteredText"/>
+          </div>  
+          <div class="box-input">Choose Column</div>  
+
+          <!-- BUTTON GOES HERE. -->
+
+          <div class="box-input search">SEARCH</div> 
+        </div>
+
+        <!-- LISTBOX 1-->
+        <div class="col-md-4 listbox list">
+          <div class="tab-bar minor">column 1</div>
+          <div class="itemcontainer">
+            <li  class="list-item" ng-repeat="item in mc.list1">
+              <div class="item-name" ng-bind="item.name"></div>
+              <div class="item-closer"></div>
+            </li>
+          </div>
+        </div>
+        <!-- END LISTBOX 1-->
+        <!-- LISTBOX 2-->
+        <div class="col-md-4 listbox list">
+          <div class="tab-bar minor">column 2</div>
+          <div class="itemcontainer">
+            <li class="list-item" ng-repeat="other in mc.list2">
+              <div class="item-name" ng-bind="other.name"></div>
+              <div class="item-closer"></div>
+            </li>
+          </div>
+        </div>
+        <!-- END LISTBOX 2-->
+    </div>
+
+  </div>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
