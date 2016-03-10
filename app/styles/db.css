@@ -134,6 +134,10 @@ input:focus {
 .content.main {
   margin-top: 80px;
   position: relative;
+  /*
+		odd f2f3f4
+		even bcc0c7
+	*/
 }
 .content.main .tab-bar {
   width: auto;
@@ -151,6 +155,9 @@ input:focus {
   border: 1px;
   font-size: 20px;
 }
+.content.main .tab-bar.minor.active {
+  color: steelblue;
+}
 .content.main .itemcontainer {
   display: block;
   position: relative;
@@ -160,6 +167,11 @@ input:focus {
   list-style: none;
   overflow-y: scroll;
 }
+.content.main .itemcontainer::-webkit-scrollbar {
+  width: 0 !important ;
+  display: none !important;
+  height: 0px !important;
+}
 .content.main .list-item {
   min-height: 40px;
   border: 1px solid silver;
@@ -167,19 +179,40 @@ input:focus {
   line-height: 40px;
   padding: 5px;
   text-transform: uppercase;
+  position: relative;
 }
 .content.main .list-item .item-name {
   display: inline-block;
+}
+.content.main .list-item .fa-remove {
+  display: block;
+  position: absolute;
+  font-size: 24px;
+  font-weight: 100;
+  margin: 0px 0 0 2px;
 }
 .content.main .list-item .item-closer {
   display: inline-block;
   position: relative;
   float: right;
-  margin: 10px 4px 0 0;
-  width: 20px;
-  height: 20px;
-  border: 1px solid steelblue;
-  content: "X";
+  margin: 6px 4px 0 0;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #ababab;
+  border-radius: 6px;
+}
+.content.main .list-item:nth-child(odd) {
+  background-color: #f2f3f4;
+}
+.content.main .list-item:nth-child(odd) .fa {
+  color: #5a5a5a !important;
+}
+.content.main .list-item:nth-child(even) {
+  background-color: #bcc0c7;
+  color: #fff;
+}
+.content.main .list-item:nth-child(even) .fa {
+  color: #5a5a5a !important;
 }
 .content.main .box-input {
   margin-top: 10px;
@@ -187,6 +220,7 @@ input:focus {
   height: 72px;
   border: 4px solid #fff;
   background-color: #9ba1ab;
+  cursor: default;
   /* */
   line-height: 70px;
   font-weight: 100;
@@ -195,11 +229,21 @@ input:focus {
   color: #d6d8dc;
   text-transform: uppercase;
 }
-.content.main .box-input input[type="text"] {
+.content.main .box-input input[type="input"] {
   background-color: transparent !important;
   border: none;
   select: none;
   text-transform: uppercase;
+}
+.content.main .box-input .fa-caret-down {
+  color: #fff;
+  font-size: 20px;
+  float: right;
+  margin-right: 14px;
+  line-height: 70px;
+}
+.content.main .box-input.chooser {
+  cursor: pointer;
 }
 .content.main .box-input.search {
   position: absolute;
@@ -207,6 +251,47 @@ input:focus {
   line-height: 50px;
   bottom: 0;
   width: calc(100% - 15px);
+}
+.content.main .box-input.button {
+  text-align: center;
+  cursor: pointer;
+}
+.content.main .box-input.button:hover {
+  background-color: #9ba7b7;
+}
+.content.main .box-input.button.disabled {
+  pointer-events: none;
+  background-color: #ccc;
+  color: #ababab;
+}
+.content.main .chooser-item {
+  border: 1px solid silver;
+  padding: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: #f2f3f4;
+}
+.content.main .chooser-item:hover {
+  background-color: #bcc0c7;
+  color: #fff;
+}
+.content.main .chooser-item.active {
+  color: steelblue;
+}
+.content.main .chooser-dd {
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ababab;
+}
+.content.main .chooser-dd li {
+  height: 20px;
+  line-height: 20px;
+}
+.content.main .chooser-dd.active {
+  opacity: 1;
+  pointer-events: all;
 }
 .content.main .boxes {
   margin-top: 20px;
@@ -218,7 +303,7 @@ input:focus {
   min-height: 400px;
 }
 .content.main .listbox.list {
-  background-color: #ccc;
+  background-color: #fff;
   /*padding-left: 2px;
 		padding-right:2px;*/
   padding: 4px;

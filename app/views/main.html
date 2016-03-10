@@ -1,8 +1,6 @@
-<div class="container">
+<div class="container" ng-click="mc.md($event)">
 
   <p class="lead">
-    <!-- <img src="images/yeoman.png" alt="I'm Yeoman"><br> -->
-    <!-- Always a pleasure scaffolding your apps. -->
     <h3 class="merry-title"><i>Marvelous!</i></h3>
     <div class="merry-descr"><span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</span></div>
   </p>
@@ -15,35 +13,41 @@
 
         <!-- LEFT UI THINGS -->
         <div class="col-md-4 listbox leftbox">
-          <!-- <div class="basic-btn">Add Item</div>   -->
+          
+          <!-- ADD ITEM INPUT -->
           <div class="box-input">
-            <input type="text" placeholder="ENTER ITEM" mg-model="enteredText"/>
-          </div>  
-          <div class="box-input">Choose Column</div>  
-
-          <!-- BUTTON GOES HERE. -->
-
+            <input type="input" placeholder="ENTER ITEM" ng-model="addlabel" aria-describedBy="Add Item"/>
+          </div> 
+           <!--  DROP DOWN PROMPT -->
+          <div id="chooser" class="box-input chooser" ng-click="mc.toggle()">Choose Column<div id="caret" class="fa fa-caret-down"></div></div>
+          <!-- DROP DOWN. -->
+          <div  class="chooser-dd" ng-class="{'active':mc.ddv===true}">
+              <div class="chooser-item" ng-click="mc.selectList(1)" ng-class="{'active':mc.selList===mc.list1}">COLUMN 1</div>
+              <div class="chooser-item" ng-click="mc.selectList(2)" ng-class="{'active':mc.selList===mc.list2}">COLUMN 2</div>
+          </div>
+          <!-- THE BUTTON -->
+          <div class="box-input button" ng-click="mc.addItem()" ng-class="{'disabled':!mc.selList || !addlabel}">ADD ITEM</div>
+          <!-- SEARCH -->
           <div class="box-input search">SEARCH</div> 
         </div>
-
         <!-- LISTBOX 1-->
         <div class="col-md-4 listbox list">
-          <div class="tab-bar minor">column 1</div>
+          <div class="tab-bar minor" ng-class="{'active':mc.selList===mc.list1}">column 1</div>
           <div class="itemcontainer">
             <li  class="list-item" ng-repeat="item in mc.list1">
               <div class="item-name" ng-bind="item.name"></div>
-              <div class="item-closer"></div>
+              <div class="item-closer"><div class="fa fa-remove"></div></div>
             </li>
           </div>
         </div>
         <!-- END LISTBOX 1-->
         <!-- LISTBOX 2-->
         <div class="col-md-4 listbox list">
-          <div class="tab-bar minor">column 2</div>
+          <div class="tab-bar minor" ng-class="{'active':mc.selList===mc.list2}">column 2</div>
           <div class="itemcontainer">
             <li class="list-item" ng-repeat="other in mc.list2">
               <div class="item-name" ng-bind="other.name"></div>
-              <div class="item-closer"></div>
+              <div class="item-closer"><div class="fa fa-remove"></div></div>
             </li>
           </div>
         </div>
