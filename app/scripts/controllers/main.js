@@ -44,12 +44,10 @@ angular.module('angulartestApp')
 		$scope.addlabel = '';
 
 		var listid=$scope.selList===$scope.list1?'list1':'list2';
-		console.log('addItem', listid);
 		Data.updateList(listid, $scope.selList);
 	};
 
 	$scope.keyCapture = function(){
-		console.log('keyCapture');
 		if($scope.addlabel && $scope.selList!==null) {
 			console.log('GO AHEAD');
 			$scope.addItem();
@@ -58,7 +56,6 @@ angular.module('angulartestApp')
 
 	$scope.deleteItem = function (item, listid) {
 		var list = listid==='list1'?$scope.list1:$scope.list2;
-		console.log('BEFORE', list);
 		for(var i=0;i<list.length;i++) {
 			if(item.id===list[i].id) {
 				list.splice(i,1);
@@ -69,13 +66,10 @@ angular.module('angulartestApp')
 	};
 
 	$scope.selectList= function(n) {
-		var self = this;
-
 		$timeout(function() { 
 			self.ddv = false;
 		}, 50);
-
-		
+	
 		if(n===1){
 			$scope.selList = $scope.list1;
 		} else {
