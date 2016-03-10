@@ -40,9 +40,8 @@ body{
 input:focus {outline:0;}
 
 .merry-title{
-
 	font-family: 'Merriweather', serif;
-	font-size:74px;/*72.37px;*/
+	font-size:48px;/*72.37px;*/
 	color:#fff;
 }
 .merry-descr{
@@ -50,17 +49,17 @@ input:focus {outline:0;}
 	position:relative;
 	top:6px;
 	margin:0px 0 0 2px;
-	width:75%;
-	font-size:24px;
+	width:90%;
+	font-size:18px;
 	color:#8ef8e8;
 	line-height: 1.2;
-
 }
 
 .content.main {
-	margin-top:80px;
+	margin-top:50px;
+	padding-bottom: 50px;
 	position:relative;
-
+	
 
 	.tab-bar {
 		width:auto;
@@ -204,13 +203,11 @@ input:focus {outline:0;}
 		cursor: pointer;
 	}	
 	.box-input.search {
-		position:absolute;
 		height:52px;
 		line-height: 46px;
-		bottom:0;
-		width: ~"calc(100% - 15px)";
+		margin-top: 10px;
+		/*width: ~"calc(100% - 15px)";*/
 		input[type="search"] {
-	
 			background-color:transparent !important;
 			border:none;
 			text-transform: uppercase;
@@ -268,7 +265,9 @@ input:focus {outline:0;}
 		padding-left:0;
 	}
 	.listbox{
-		min-height: 400px;
+		margin-top:25px;
+		height: 400px;
+		padding-right:0;
 	}
 	.listbox.list{
 		background-color: #fff;
@@ -277,4 +276,68 @@ input:focus {outline:0;}
 		padding:4px;
 
 	}
+}
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	.content.main {
+	}
+
+}
+/* iPad PORTRAIT */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)  { 
+	.merry-title{
+		
+	}
+	.merry-descr{
+		width:100%;
+		margin:0px auto 0 auto;
+	}
+	
+	.content.main {
+		width:90%;
+		margin:40px auto 0 auto;
+		padding-right:15px;
+	}
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.listbox{
+		margin-top:0;
+		padding-right:15px;
+	}
+	.leftbox{
+		padding-left:0;
+		padding-right:15px !important;
+	}
+	.box-input.search {
+		margin-top: 25px !important;
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	.merry-title{
+		font-size:74px;
+	}
+	.merry-descr{
+		width:75%;
+		font-size:24px;
+		line-height: 1.2;
+	}
+	.content.main {
+		margin-top:80px;
+		padding-bottom: 0;
+	}
+	.listbox{
+		margin-top:0;
+		padding-right:15px;
+	}
+	.box-input.search {
+		margin-top: 25px !important;
+	}
+
 }
