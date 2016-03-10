@@ -10,50 +10,54 @@
 angular.module('angulartestApp')
 .controller('MainCtrl',['$scope', '$timeout', 'Data', function ($scope, $timeout,  Data) {
 
-	this.ddv = false;
+	$scope.ddv = false;
 	$scope.addlabel = '';
 
-	this.list1 = Data.getList(1);
-	this.list2 = Data.getList(2);
+	$scope.list1 = Data.getList(1);
+	$scope.list2 = Data.getList(2);
 
-	this.selList=null;
+	$scope.selList=null;
 
 
 	//CATCH ALL, OPERATES LIKE ESCAPE KEY FOR OPEN / ACTIVE ELEMENTS.
-	this.md = function($event) {
+	$scope.md = function($event) {
 		if($event.target.id==='chooser'|| $event.target.id==='caret') {
 			return;
 		}
-		this.ddv = false;
+		$scope.ddv = false;
 	};
 
 	//TOGGLE THE DROPDOWN.
-	this.toggle = function() {
-		this.ddv=!this.ddv;
+	$scope.toggle = function() {
+		$scope.ddv=!$scope.ddv;
 	};
 
-	$scope.captureEnter = function(){
-		console.log('captureEnter');
-		if($scope.addlabel && this.selList!==null) {
-			console.log('GO AHEAD');
-			this.addItem();
-		}
-	
-	};
 
-	this.addItem = function() {
+	$scope.addItem = function() {
 
 		var newItem = {
 			name:$scope.addlabel,
-			id:(this.selList.length)
+			id:($scope.selList.length)
 		};
 
-		this.selList.push(newItem);
+		$scope.selList.push(newItem);
 		$scope.addlabel = '';
+
+		var listid=$scope.selList===$scope.list1?'list1':'list2';
+		console.log('addItem', listid);
+		Data.updateList(listid, $scope.selList);
 	};
 
-	this.deleteItem = function (item, listid) {
-		var list = listid==='list1'?this.list1:this.list2;
+	$scope.keyCapture = function(){
+		console.log('keyCapture');
+		if($scope.addlabel && $scope.selList!==null) {
+			console.log('GO AHEAD');
+			$scope.addItem();
+		}
+	};
+
+	$scope.deleteItem = function (item, listid) {
+		var list = listid==='list1'?$scope.list1:$scope.list2;
 		console.log('BEFORE', list);
 		for(var i=0;i<list.length;i++) {
 			if(item.id===list[i].id) {
@@ -61,9 +65,10 @@ angular.module('angulartestApp')
 				break;
 			}
 		}
+		Data.updateList(listid, list);
 	};
 
-	this.selectList= function(n) {
+	$scope.selectList= function(n) {
 		var self = this;
 
 		$timeout(function() { 
@@ -72,12 +77,10 @@ angular.module('angulartestApp')
 
 		
 		if(n===1){
-			this.selList = this.list1;
+			$scope.selList = $scope.list1;
 		} else {
-			this.selList = this.list2;
+			$scope.selList = $scope.list2;
 		}
-			
-		console.log('selList', this.selList[0]);
 	};
 
  }]);

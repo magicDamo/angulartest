@@ -175,9 +175,9 @@ input:focus {outline:0;}
 		input[type="input"] {
 			background-color:transparent !important;
 			border:none;
-			select:none;
 			text-transform: uppercase;
-		}
+		};
+		
 		.chooser{
 			
 		}
@@ -188,6 +188,16 @@ input:focus {outline:0;}
 			margin-right:14px;
 			line-height: 70px;
 		}
+		.fa-search{
+			color:#fff;
+			font-size:20px;
+			float:right;
+			margin-right:14px;
+			line-height: 45px;
+		}
+	}
+	.box-input.entry {
+		margin-top:0;
 	}
 	.box-input.chooser{
 		cursor: pointer;
@@ -195,9 +205,15 @@ input:focus {outline:0;}
 	.box-input.search {
 		position:absolute;
 		height:52px;
-		line-height: 50px;
+		line-height: 46px;
 		bottom:0;
 		width: ~"calc(100% - 15px)";
+		input[type="search"] {
+	
+			background-color:transparent !important;
+			border:none;
+			text-transform: uppercase;
+		}
 	}
 	.box-input.button {
 		text-align: center;

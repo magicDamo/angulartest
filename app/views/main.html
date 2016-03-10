@@ -1,4 +1,4 @@
-<div class="container" ng-click="mc.md($event)">
+<div class="container" ng-click="md($event)">
 
   <p class="lead">
     <h3 class="merry-title"><i>Marvelous!</i></h3>
@@ -15,39 +15,42 @@
         <div class="col-md-4 listbox leftbox">
           
           <!-- ADD ITEM INPUT -->
-          <div class="box-input">
-            <input type="input" placeholder="ENTER ITEM" ng-model="addlabel" aria-describedBy="Add Item"/>
+          <div class="box-input entry">
+            <input type="input" placeholder="ENTER ITEM" ng-model="addlabel" aria-describedBy="Add Item" ng-enter="keyCapture($event)"/>
           </div> 
            <!--  DROP DOWN PROMPT -->
-          <div id="chooser" class="box-input chooser" ng-click="mc.toggle()">Choose Column<div id="caret" class="fa fa-caret-down"></div></div>
+          <div id="chooser" class="box-input chooser" ng-click="toggle()">Choose Column<div id="caret" class="fa fa-caret-down"></div></div>
           <!-- DROP DOWN. -->
-          <div  class="chooser-dd" ng-class="{'active':mc.ddv===true}">
-              <div class="chooser-item" ng-click="mc.selectList(1)" ng-class="{'active':mc.selList===mc.list1}">COLUMN 1</div>
-              <div class="chooser-item" ng-click="mc.selectList(2)" ng-class="{'active':mc.selList===mc.list2}">COLUMN 2</div>
+          <div  class="chooser-dd" ng-class="{'active':ddv===true}">
+              <div class="chooser-item" ng-click="selectList(1)" ng-class="{'active':selList===list1}">COLUMN 1</div>
+              <div class="chooser-item" ng-click="selectList(2)" ng-class="{'active':selList===list2}">COLUMN 2</div>
           </div>
           <!-- THE BUTTON -->
-          <div class="box-input button" ng-click="mc.addItem()" ng-class="{'disabled':!mc.selList || !addlabel}">ADD ITEM</div>
+          <div class="box-input button" ng-click="addItem()" ng-class="{'disabled':!selList || !addlabel}">ADD ITEM</div>
           <!-- SEARCH -->
-          <div class="box-input search">SEARCH</div> 
+          <div class="box-input search">
+            <input type="search" placeholder="Search" ng-model="searchterm" aria-describedBy="Add Item" />
+            <div id="searcher" class="fa fa-search"></div>
+          </div> 
         </div>
         <!-- LISTBOX 1-->
         <div class="col-md-4 listbox list">
-          <div class="tab-bar minor" ng-class="{'active':mc.selList===mc.list1}">column 1</div>
+          <div class="tab-bar minor" ng-class="{'active':selList===list1}">column 1</div>
           <div class="itemcontainer">
-            <li  class="listitem" ng-repeat="item in mc.list1">
+            <li  class="listitem" ng-repeat="item in list1 | filter:{$:searchterm}">
               <div class="item-name" ng-bind="item.name"></div>
-              <div class="item-closer" ng-click="mc.deleteItem(item, 'list1')"><div class="fa fa-remove"></div></div>
+              <div class="item-closer" ng-click="deleteItem(item, 'list1')"><div class="fa fa-remove"></div></div>
             </li>
           </div>
         </div>
         <!-- END LISTBOX 1-->
         <!-- LISTBOX 2-->
         <div class="col-md-4 listbox list">
-          <div class="tab-bar minor" ng-class="{'active':mc.selList===mc.list2}">column 2</div>
+          <div class="tab-bar minor" ng-class="{'active':selList===list2}">column 2</div>
           <div class="itemcontainer">
-            <li class="listitem" ng-repeat="other in mc.list2">
+            <li class="listitem" ng-repeat="other in list2 | filter:{$:searchterm}">
               <div class="item-name" ng-bind="other.name"></div>
-              <div class="item-closer" ng-click="mc.deleteItem(other, 'list2')"><div class="fa fa-remove"></div></div>
+              <div class="item-closer" ng-click="deleteItem(other, 'list2')"><div class="fa fa-remove"></div></div>
             </li>
           </div>
         </div>
