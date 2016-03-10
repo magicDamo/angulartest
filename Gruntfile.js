@@ -1,4 +1,4 @@
-// Generated on 2016-03-10 using generator-angular 0.15.1
+// Generated on 2016-02-19 using generator-angular 0.15.1
 'use strict';
 
 // # Globbing
@@ -18,6 +18,12 @@ module.exports = function (grunt) {
     ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn'
   });
+
+  //ME.
+  grunt.loadNpmTasks('grunt-contrib-less');
+
+  //ME
+  var modRewrite = require('connect-modrewrite');
 
   // Configurable paths for the application
   var appConfig = {
@@ -48,6 +54,13 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
       },
+      less:{
+        files: ['<%= yeoman.app %>/less/{,*/}*.less'],
+        tasks: ['less'],
+        options: {
+          livereload: false
+        }
+      },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'postcss']
@@ -72,7 +85,7 @@ module.exports = function (grunt) {
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
+        hostname:  '0.0.0.0',//'localhost',
         livereload: 35729
       },
       livereload: {
@@ -80,6 +93,7 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
+              modRewrite(['^[^\\.]*$ /index.html [L]']),
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -155,6 +169,46 @@ module.exports = function (grunt) {
       }
     },
 
+     //less, ME
+    less: {
+      development: {
+        options: {
+          // paths: ["assets/css"]
+        },
+        files: {
+          // "path/to/result.css": "path/to/source.less"
+          '<%= yeoman.app %>/styles/db.css': '<%= yeoman.app %>/less/db.less'
+        }
+      },
+      dist:{
+        files: {
+          // "path/to/result.css": "path/to/source.less"
+          '<%= yeoman.app %>/styles/db.css': '<%= yeoman.app %>/less/db.less'
+        }
+      },
+      production: {
+        options: {
+          // paths: ["assets/css"],
+
+          /*
+          //TODO: re-enable this.
+          plugins: [
+            new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]}),
+            new (require('less-plugin-clean-css'))(cleanCssOptions)
+          ]
+          */
+          /*, modifyVars: {
+            imgPath: '"http://mycdn.com/path/to/images"',
+            bgColor: 'red'
+          }
+          */
+        },
+        files: {
+          // "path/to/result.css": "path/to/source.less"
+          '<%= yeoman.app %>/styles/db.css': '<%= yeoman.app %>/less/db.less'
+        }
+      }
+    },
     // Empties folders to start fresh
     clean: {
       dist: {
@@ -467,6 +521,7 @@ module.exports = function (grunt) {
     'ngAnnotate',
     'copy:dist',
     'cdnify',
+    'less:dist',
     'cssmin',
     'uglify',
     'filerev',
