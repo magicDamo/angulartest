@@ -32,6 +32,15 @@ angular.module('angulartestApp')
 		this.ddv=!this.ddv;
 	};
 
+	$scope.captureEnter = function(){
+		console.log('captureEnter');
+		if($scope.addlabel && this.selList!==null) {
+			console.log('GO AHEAD');
+			this.addItem();
+		}
+	
+	};
+
 	this.addItem = function() {
 
 		var newItem = {
@@ -40,30 +49,34 @@ angular.module('angulartestApp')
 		};
 
 		this.selList.push(newItem);
-		console.log('add item', this.selList);
 		$scope.addlabel = '';
 	};
 
+	this.deleteItem = function (item, listid) {
+		var list = listid==='list1'?this.list1:this.list2;
+		console.log('BEFORE', list);
+		for(var i=0;i<list.length;i++) {
+			if(item.id===list[i].id) {
+				list.splice(i,1);
+				break;
+			}
+		}
+	};
+
 	this.selectList= function(n) {
-		console.log('selectList', n);
 		var self = this;
 
 		$timeout(function() { 
 			self.ddv = false;
 		}, 50);
 
-		if(!this.selList) {
+		
+		if(n===1){
 			this.selList = this.list1;
-			return;
-		}
-		if(n===2){
-			console.log('two block');
-			this.selList = this.list2;
 		} else {
-			console.log('one block');
-			this.selList = this.list1;
+			this.selList = this.list2;
 		}
-		// this.selList = n===2?this.list1:this.list2;	
+			
 		console.log('selList', this.selList[0]);
 	};
 

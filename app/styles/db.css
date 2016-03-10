@@ -172,7 +172,7 @@ input:focus {
   display: none !important;
   height: 0px !important;
 }
-.content.main .list-item {
+.content.main .listitem {
   min-height: 40px;
   border: 1px solid silver;
   color: #5a5a5a;
@@ -181,19 +181,21 @@ input:focus {
   text-transform: uppercase;
   position: relative;
 }
-.content.main .list-item .item-name {
+.content.main .listitem .item-name {
   display: inline-block;
 }
-.content.main .list-item .fa-remove {
+.content.main .listitem .fa-remove {
   display: block;
   position: absolute;
   font-size: 24px;
   font-weight: 100;
   margin: 0px 0 0 2px;
+  color: #5a5a5a !important;
 }
-.content.main .list-item .item-closer {
+.content.main .listitem .item-closer {
   display: inline-block;
   position: relative;
+  cursor: pointer;
   float: right;
   margin: 6px 4px 0 0;
   width: 26px;
@@ -201,18 +203,24 @@ input:focus {
   border: 1px solid #ababab;
   border-radius: 6px;
 }
-.content.main .list-item:nth-child(odd) {
+.content.main .listitem .item-closer:hover {
+  border: 1px solid steelblue;
+}
+.content.main .listitem .item-closer:hover .fa-remove {
+  color: steelblue!important;
+}
+.content.main .listitem:nth-child(odd) {
   background-color: #f2f3f4;
 }
-.content.main .list-item:nth-child(odd) .fa {
-  color: #5a5a5a !important;
+.content.main .listitem:nth-child(odd) .fa {
+  /*color:#5a5a5a !important;*/
 }
-.content.main .list-item:nth-child(even) {
+.content.main .listitem:nth-child(even) {
   background-color: #bcc0c7;
   color: #fff;
 }
-.content.main .list-item:nth-child(even) .fa {
-  color: #5a5a5a !important;
+.content.main .listitem:nth-child(even) .fa {
+  /*color:#5a5a5a !important;*/
 }
 .content.main .box-input {
   margin-top: 10px;

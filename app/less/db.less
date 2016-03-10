@@ -103,7 +103,7 @@ input:focus {outline:0;}
 		odd f2f3f4
 		even bcc0c7
 	*/
-	.list-item{
+	.listitem{
 		min-height: 40px;
 		border:1px solid silver;
 		color:#5a5a5a;
@@ -121,10 +121,12 @@ input:focus {outline:0;}
 			font-size:24px;
 			font-weight: 100;
 			margin:0px 0 0 2px;
+			color:#5a5a5a !important;
 		}
 		.item-closer {
 			display:inline-block;
 			position:relative;
+			cursor:pointer;
 			float:right;
 			margin:6px 4px 0 0;
 			width:26px;
@@ -132,21 +134,27 @@ input:focus {outline:0;}
 			border:1px solid #ababab;
 			border-radius: 6px;
 		}
+		.item-closer:hover {
+			border:1px solid steelblue;
+			.fa-remove{
+				color:steelblue!important;
+			}
+		}
 	}
 
-	.list-item:nth-child(odd) {
+	.listitem:nth-child(odd) {
 
   		background-color: #f2f3f4;
   		.fa{
   			
-			color:#5a5a5a !important;
+			/*color:#5a5a5a !important;*/
 		}
 	}
-	.list-item:nth-child(even) {
+	.listitem:nth-child(even) {
   		background-color: #bcc0c7;
   		color:#fff;
   		.fa{;
-			color:#5a5a5a !important;
+			/*color:#5a5a5a !important;*/
 		}
   	}
 

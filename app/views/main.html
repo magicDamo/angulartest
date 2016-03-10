@@ -34,9 +34,9 @@
         <div class="col-md-4 listbox list">
           <div class="tab-bar minor" ng-class="{'active':mc.selList===mc.list1}">column 1</div>
           <div class="itemcontainer">
-            <li  class="list-item" ng-repeat="item in mc.list1">
+            <li  class="listitem" ng-repeat="item in mc.list1">
               <div class="item-name" ng-bind="item.name"></div>
-              <div class="item-closer"><div class="fa fa-remove"></div></div>
+              <div class="item-closer" ng-click="mc.deleteItem(item, 'list1')"><div class="fa fa-remove"></div></div>
             </li>
           </div>
         </div>
@@ -45,15 +45,14 @@
         <div class="col-md-4 listbox list">
           <div class="tab-bar minor" ng-class="{'active':mc.selList===mc.list2}">column 2</div>
           <div class="itemcontainer">
-            <li class="list-item" ng-repeat="other in mc.list2">
+            <li class="listitem" ng-repeat="other in mc.list2">
               <div class="item-name" ng-bind="other.name"></div>
-              <div class="item-closer"><div class="fa fa-remove"></div></div>
+              <div class="item-closer" ng-click="mc.deleteItem(other, 'list2')"><div class="fa fa-remove"></div></div>
             </li>
           </div>
         </div>
         <!-- END LISTBOX 2-->
     </div>
-
   </div>
 </div>
 
