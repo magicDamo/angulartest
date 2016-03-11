@@ -5,7 +5,7 @@
 #DEAD EASY:
 A) grab 'dist' directory and put it on an active webserver route.
 OR
-B) if you have node / grunt installed, in CLI, run 'grunt serve:dist' from the root of the project.
+B) if you have node / grunt installed, in CLI, run `grunt serve:dist` from the root of the project.
 #AMBITIOUS:
 If you have node etc installed, run npm install, bower install and then 'grunt serve', which will run from the app directory
 Run `grunt` for building and `grunt serve` for preview.

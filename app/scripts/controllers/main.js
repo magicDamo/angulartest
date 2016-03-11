@@ -49,7 +49,6 @@ angular.module('angulartestApp')
 
 	$scope.keyCapture = function(){
 		if($scope.addlabel && $scope.selList!==null) {
-			console.log('GO AHEAD');
 			$scope.addItem();
 		}
 	};
@@ -76,5 +75,4 @@ angular.module('angulartestApp')
 			$scope.selList = $scope.list2;
 		}
 	};
-
  }]);
